@@ -10,13 +10,18 @@
 		265C196D1E89E876005281C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C196C1E89E876005281C8 /* AppDelegate.swift */; };
 		265C196F1E89E876005281C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C196E1E89E876005281C8 /* ViewController.swift */; };
 		265C19721E89E876005281C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265C19701E89E876005281C8 /* Main.storyboard */; };
-		265C19751E89E876005281C8 /* Bookshelf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 265C19731E89E876005281C8 /* Bookshelf.xcdatamodeld */; };
 		265C19771E89E876005281C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265C19761E89E876005281C8 /* Assets.xcassets */; };
 		265C197A1E89E876005281C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265C19781E89E876005281C8 /* LaunchScreen.storyboard */; };
 		265C19851E89E876005281C8 /* BookshelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19841E89E876005281C8 /* BookshelfTests.swift */; };
-		265C19911E89E92B005281C8 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19901E89E92B005281C8 /* DataStoreManager.swift */; };
-		265C19931E89ECFA005281C8 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19921E89ECFA005281C8 /* BookStore.swift */; };
 		265C19951E89F200005281C8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19941E89F200005281C8 /* DetailViewController.swift */; };
+		265C19A41E8AB6E5005281C8 /* BookshelfDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */; };
+		265C19AB1E8AB6E5005281C8 /* BookshelfDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19AA1E8AB6E5005281C8 /* BookshelfDataStoreTests.swift */; };
+		265C19AD1E8AB6E5005281C8 /* BookshelfDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 265C199D1E8AB6E5005281C8 /* BookshelfDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		265C19B01E8AB6E5005281C8 /* BookshelfDataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */; };
+		265C19B11E8AB6E5005281C8 /* BookshelfDataStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		265C19BD1E8AB86A005281C8 /* Bookshelf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 265C19B91E8AB86A005281C8 /* Bookshelf.xcdatamodeld */; };
+		265C19BE1E8AB86A005281C8 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19BB1E8AB86A005281C8 /* BookStore.swift */; };
+		265C19BF1E8AB86A005281C8 /* DataStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265C19BC1E8AB86A005281C8 /* DataStoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,23 +32,64 @@
 			remoteGlobalIDString = 265C19681E89E876005281C8;
 			remoteInfo = Bookshelf;
 		};
+		265C19A51E8AB6E5005281C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 265C19611E89E876005281C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 265C199A1E8AB6E5005281C8;
+			remoteInfo = BookshelfDataStore;
+		};
+		265C19A71E8AB6E5005281C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 265C19611E89E876005281C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 265C19681E89E876005281C8;
+			remoteInfo = Bookshelf;
+		};
+		265C19AE1E8AB6E5005281C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 265C19611E89E876005281C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 265C199A1E8AB6E5005281C8;
+			remoteInfo = BookshelfDataStore;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		265C19B51E8AB6E5005281C8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				265C19B11E8AB6E5005281C8 /* BookshelfDataStore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		265C19691E89E876005281C8 /* Bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265C196C1E89E876005281C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		265C196E1E89E876005281C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		265C19711E89E876005281C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		265C19741E89E876005281C8 /* Bookshelf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookshelf.xcdatamodel; sourceTree = "<group>"; };
 		265C19761E89E876005281C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		265C19791E89E876005281C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		265C197B1E89E876005281C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265C19801E89E876005281C8 /* BookshelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookshelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		265C19841E89E876005281C8 /* BookshelfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfTests.swift; sourceTree = "<group>"; };
 		265C19861E89E876005281C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		265C19901E89E92B005281C8 /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
-		265C19921E89ECFA005281C8 /* BookStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
 		265C19941E89F200005281C8 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookshelfDataStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		265C199D1E8AB6E5005281C8 /* BookshelfDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookshelfDataStore.h; sourceTree = "<group>"; };
+		265C199E1E8AB6E5005281C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		265C19A31E8AB6E5005281C8 /* BookshelfDataStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookshelfDataStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		265C19AA1E8AB6E5005281C8 /* BookshelfDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfDataStoreTests.swift; sourceTree = "<group>"; };
+		265C19AC1E8AB6E5005281C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		265C19BA1E8AB86A005281C8 /* Bookshelf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bookshelf.xcdatamodel; sourceTree = "<group>"; };
+		265C19BB1E8AB86A005281C8 /* BookStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
+		265C19BC1E8AB86A005281C8 /* DataStoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				265C19B01E8AB6E5005281C8 /* BookshelfDataStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +108,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		265C19971E8AB6E5005281C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		265C19A01E8AB6E5005281C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265C19A41E8AB6E5005281C8 /* BookshelfDataStore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,7 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				265C196B1E89E876005281C8 /* Bookshelf */,
+				265C199C1E8AB6E5005281C8 /* BookshelfDataStore */,
 				265C19831E89E876005281C8 /* BookshelfTests */,
+				265C19A91E8AB6E5005281C8 /* BookshelfDataStoreTests */,
 				265C196A1E89E876005281C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +142,8 @@
 			children = (
 				265C19691E89E876005281C8 /* Bookshelf.app */,
 				265C19801E89E876005281C8 /* BookshelfTests.xctest */,
+				265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */,
+				265C19A31E8AB6E5005281C8 /* BookshelfDataStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,7 +151,6 @@
 		265C196B1E89E876005281C8 /* Bookshelf */ = {
 			isa = PBXGroup;
 			children = (
-				265C198F1E89E8FE005281C8 /* DataStore */,
 				265C196C1E89E876005281C8 /* AppDelegate.swift */,
 				265C196E1E89E876005281C8 /* ViewController.swift */,
 				265C19941E89F200005281C8 /* DetailViewController.swift */,
@@ -106,17 +171,39 @@
 			path = BookshelfTests;
 			sourceTree = "<group>";
 		};
-		265C198F1E89E8FE005281C8 /* DataStore */ = {
+		265C199C1E8AB6E5005281C8 /* BookshelfDataStore */ = {
 			isa = PBXGroup;
 			children = (
-				265C19731E89E876005281C8 /* Bookshelf.xcdatamodeld */,
-				265C19901E89E92B005281C8 /* DataStoreManager.swift */,
-				265C19921E89ECFA005281C8 /* BookStore.swift */,
+				265C199D1E8AB6E5005281C8 /* BookshelfDataStore.h */,
+				265C199E1E8AB6E5005281C8 /* Info.plist */,
+				265C19B91E8AB86A005281C8 /* Bookshelf.xcdatamodeld */,
+				265C19BB1E8AB86A005281C8 /* BookStore.swift */,
+				265C19BC1E8AB86A005281C8 /* DataStoreManager.swift */,
 			);
-			name = DataStore;
+			path = BookshelfDataStore;
+			sourceTree = "<group>";
+		};
+		265C19A91E8AB6E5005281C8 /* BookshelfDataStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				265C19AA1E8AB6E5005281C8 /* BookshelfDataStoreTests.swift */,
+				265C19AC1E8AB6E5005281C8 /* Info.plist */,
+			);
+			path = BookshelfDataStoreTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		265C19981E8AB6E5005281C8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265C19AD1E8AB6E5005281C8 /* BookshelfDataStore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		265C19681E89E876005281C8 /* Bookshelf */ = {
@@ -126,10 +213,12 @@
 				265C19651E89E876005281C8 /* Sources */,
 				265C19661E89E876005281C8 /* Frameworks */,
 				265C19671E89E876005281C8 /* Resources */,
+				265C19B51E8AB6E5005281C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				265C19AF1E8AB6E5005281C8 /* PBXTargetDependency */,
 			);
 			name = Bookshelf;
 			productName = Bookshelf;
@@ -154,6 +243,43 @@
 			productReference = 265C19801E89E876005281C8 /* BookshelfTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		265C199A1E8AB6E5005281C8 /* BookshelfDataStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 265C19B21E8AB6E5005281C8 /* Build configuration list for PBXNativeTarget "BookshelfDataStore" */;
+			buildPhases = (
+				265C19961E8AB6E5005281C8 /* Sources */,
+				265C19971E8AB6E5005281C8 /* Frameworks */,
+				265C19981E8AB6E5005281C8 /* Headers */,
+				265C19991E8AB6E5005281C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BookshelfDataStore;
+			productName = BookshelfDataStore;
+			productReference = 265C199B1E8AB6E5005281C8 /* BookshelfDataStore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		265C19A21E8AB6E5005281C8 /* BookshelfDataStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 265C19B61E8AB6E5005281C8 /* Build configuration list for PBXNativeTarget "BookshelfDataStoreTests" */;
+			buildPhases = (
+				265C199F1E8AB6E5005281C8 /* Sources */,
+				265C19A01E8AB6E5005281C8 /* Frameworks */,
+				265C19A11E8AB6E5005281C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				265C19A61E8AB6E5005281C8 /* PBXTargetDependency */,
+				265C19A81E8AB6E5005281C8 /* PBXTargetDependency */,
+			);
+			name = BookshelfDataStoreTests;
+			productName = BookshelfDataStoreTests;
+			productReference = 265C19A31E8AB6E5005281C8 /* BookshelfDataStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,6 +301,18 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 265C19681E89E876005281C8;
 					};
+					265C199A1E8AB6E5005281C8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = M3FCT79SM9;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					265C19A21E8AB6E5005281C8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = M3FCT79SM9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 265C19681E89E876005281C8;
+					};
 				};
 			};
 			buildConfigurationList = 265C19641E89E876005281C8 /* Build configuration list for PBXProject "Bookshelf" */;
@@ -191,7 +329,9 @@
 			projectRoot = "";
 			targets = (
 				265C19681E89E876005281C8 /* Bookshelf */,
+				265C199A1E8AB6E5005281C8 /* BookshelfDataStore */,
 				265C197F1E89E876005281C8 /* BookshelfTests */,
+				265C19A21E8AB6E5005281C8 /* BookshelfDataStoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -214,6 +354,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		265C19991E8AB6E5005281C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		265C19A11E8AB6E5005281C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -221,12 +375,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				265C19751E89E876005281C8 /* Bookshelf.xcdatamodeld in Sources */,
 				265C196F1E89E876005281C8 /* ViewController.swift in Sources */,
 				265C196D1E89E876005281C8 /* AppDelegate.swift in Sources */,
 				265C19951E89F200005281C8 /* DetailViewController.swift in Sources */,
-				265C19931E89ECFA005281C8 /* BookStore.swift in Sources */,
-				265C19911E89E92B005281C8 /* DataStoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +389,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		265C19961E8AB6E5005281C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265C19BE1E8AB86A005281C8 /* BookStore.swift in Sources */,
+				265C19BD1E8AB86A005281C8 /* Bookshelf.xcdatamodeld in Sources */,
+				265C19BF1E8AB86A005281C8 /* DataStoreManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		265C199F1E8AB6E5005281C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265C19AB1E8AB6E5005281C8 /* BookshelfDataStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -245,6 +414,21 @@
 			isa = PBXTargetDependency;
 			target = 265C19681E89E876005281C8 /* Bookshelf */;
 			targetProxy = 265C19811E89E876005281C8 /* PBXContainerItemProxy */;
+		};
+		265C19A61E8AB6E5005281C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 265C199A1E8AB6E5005281C8 /* BookshelfDataStore */;
+			targetProxy = 265C19A51E8AB6E5005281C8 /* PBXContainerItemProxy */;
+		};
+		265C19A81E8AB6E5005281C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 265C19681E89E876005281C8 /* Bookshelf */;
+			targetProxy = 265C19A71E8AB6E5005281C8 /* PBXContainerItemProxy */;
+		};
+		265C19AF1E8AB6E5005281C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 265C199A1E8AB6E5005281C8 /* BookshelfDataStore */;
+			targetProxy = 265C19AE1E8AB6E5005281C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -366,6 +550,7 @@
 		265C198A1E89E876005281C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M3FCT79SM9;
 				INFOPLIST_FILE = Bookshelf/Info.plist;
@@ -379,6 +564,7 @@
 		265C198B1E89E876005281C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M3FCT79SM9;
 				INFOPLIST_FILE = Bookshelf/Info.plist;
@@ -419,6 +605,81 @@
 			};
 			name = Release;
 		};
+		265C19B31E8AB6E5005281C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BookshelfDataStore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.BookshelfDataStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		265C19B41E8AB6E5005281C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BookshelfDataStore/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.BookshelfDataStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		265C19B71E8AB6E5005281C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
+				INFOPLIST_FILE = BookshelfDataStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.BookshelfDataStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookshelf.app/Bookshelf";
+			};
+			name = Debug;
+		};
+		265C19B81E8AB6E5005281C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
+				INFOPLIST_FILE = BookshelfDataStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.BookshelfDataStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bookshelf.app/Bookshelf";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -447,15 +708,31 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
+		265C19B21E8AB6E5005281C8 /* Build configuration list for PBXNativeTarget "BookshelfDataStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				265C19B31E8AB6E5005281C8 /* Debug */,
+				265C19B41E8AB6E5005281C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		265C19B61E8AB6E5005281C8 /* Build configuration list for PBXNativeTarget "BookshelfDataStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				265C19B71E8AB6E5005281C8 /* Debug */,
+				265C19B81E8AB6E5005281C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		265C19731E89E876005281C8 /* Bookshelf.xcdatamodeld */ = {
+		265C19B91E8AB86A005281C8 /* Bookshelf.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				265C19741E89E876005281C8 /* Bookshelf.xcdatamodel */,
+				265C19BA1E8AB86A005281C8 /* Bookshelf.xcdatamodel */,
 			);
-			currentVersion = 265C19741E89E876005281C8 /* Bookshelf.xcdatamodel */;
+			currentVersion = 265C19BA1E8AB86A005281C8 /* Bookshelf.xcdatamodel */;
 			path = Bookshelf.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

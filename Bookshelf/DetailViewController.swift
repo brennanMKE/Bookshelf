@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import BookshelfDataStore
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
-
     @IBOutlet weak var authorTextField: UITextField!
+    @IBOutlet var bookStore: BookStore!
 
     override func viewDidAppear(_ animated: Bool) {
         titleTextField.becomeFirstResponder()
@@ -28,7 +29,6 @@ class DetailViewController: UIViewController {
         setEditing(false, animated: true)
 
         let bookId = UUID().uuidString
-        let bookStore = BookStore()
         bookStore.createBook(bookId: bookId, title: title, author: author)
         performSegue(withIdentifier: "returnHome", sender: self)
     }

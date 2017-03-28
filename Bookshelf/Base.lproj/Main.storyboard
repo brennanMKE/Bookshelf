@@ -78,7 +78,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="s6n-5m-qBf" customClass="BookStore" customModule="Bookshelf" customModuleProvider="target"/>
+                <customObject id="s6n-5m-qBf" customClass="BookStore" customModule="BookshelfDataStore"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="790.25487256371821"/>
         </scene>
@@ -95,44 +95,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Hv-30-Auy">
-                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="qUh-QF-xLG" id="sY3-6V-XWZ"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-AZ-UdR">
-                                <rect key="frame" x="16" y="66" width="343" height="30"/>
+                                <rect key="frame" x="16" y="134" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
                                 <connections>
                                     <outlet property="delegate" destination="qUh-QF-xLG" id="5rt-zh-OSi"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogT-DT-5PB">
+                                <rect key="frame" x="133.5" y="40" width="109" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Hv-30-Auy" firstAttribute="top" secondItem="e2P-dq-f9J" secondAttribute="bottom" constant="8" id="3h0-tH-Qob"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Icl-AZ-UdR" secondAttribute="trailing" id="9Ld-ae-raT"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Icl-AZ-UdR" secondAttribute="leading" id="P1l-yE-KnC"/>
                             <constraint firstAttribute="leadingMargin" secondItem="6Hv-30-Auy" secondAttribute="leading" id="QTI-oV-FcA"/>
-                            <constraint firstItem="Icl-AZ-UdR" firstAttribute="top" secondItem="6Hv-30-Auy" secondAttribute="bottom" constant="8" id="Tx9-Ty-jjZ"/>
+                            <constraint firstItem="Icl-AZ-UdR" firstAttribute="top" secondItem="6Hv-30-Auy" secondAttribute="bottom" constant="20" id="Tx9-Ty-jjZ"/>
+                            <constraint firstItem="6Hv-30-Auy" firstAttribute="top" secondItem="ogT-DT-5PB" secondAttribute="bottom" constant="20" id="rBW-0u-O1i"/>
+                            <constraint firstItem="ogT-DT-5PB" firstAttribute="top" secondItem="e2P-dq-f9J" secondAttribute="bottom" constant="20" id="uR0-mp-eLl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Hv-30-Auy" secondAttribute="trailing" id="vDd-gC-UKs"/>
+                            <constraint firstItem="ogT-DT-5PB" firstAttribute="centerX" secondItem="rpw-MJ-uGD" secondAttribute="centerX" id="vm3-an-9AE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="authorTextField" destination="Icl-AZ-UdR" id="MKm-u6-6WG"/>
+                        <outlet property="bookStore" destination="R88-34-fJb" id="QJ8-A9-9C2"/>
                         <outlet property="titleTextField" destination="6Hv-30-Auy" id="TGW-JK-LZq"/>
                         <segue destination="ntP-an-PlE" kind="unwind" identifier="returnHome" unwindAction="returnHomeWithSegue:" id="e2J-vn-EE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpf-dH-mZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="R88-34-fJb" customClass="BookStore" customModule="BookshelfDataStore"/>
                 <exit id="ntP-an-PlE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1824.8" y="802.848575712144"/>
+            <point key="canvasLocation" x="1807" y="790"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Ut-wc-gup">

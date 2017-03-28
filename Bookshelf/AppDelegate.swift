@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BookshelfDataStore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

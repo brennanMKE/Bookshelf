@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import BookshelfDataStore
 
 class ViewController: UIViewController {
 
@@ -81,6 +82,8 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author
 
+        debugPrint("Preparing cell: \(book.bookId ?? "")")
+
         return cell
     }
 
@@ -126,23 +129,25 @@ extension ViewController: NSFetchedResultsControllerDelegate {
 
         switch type {
         case .insert:
-            // Note that for Insert, we insert a row at the __newIndexPath__
             if let insertIndexPath = newIndexPath {
                 tableView.insertRows(at: [insertIndexPath], with: .automatic)
-            }
-        case .delete:
-            if let deleteIndexPath = indexPath {
-                tableView.deleteRows(at: [deleteIndexPath], with: .automatic)
             }
         case .update:
             if let updateIndexPath = indexPath {
                 tableView.reloadRows(at: [updateIndexPath], with: .automatic)
             }
-        default:
-            // do nothing
-            break
+        case .delete:
+            if let deleteIndexPath = indexPath {
+                tableView.deleteRows(at: [deleteIndexPath], with: .automatic)
+            }
+        case .move:
+            if let deleteIndexPath = indexPath {
+                tableView.deleteRows(at: [deleteIndexPath], with: .automatic)
+            }
+            if let insertIndexPath = newIndexPath {
+                tableView.insertRows(at: [insertIndexPath], with: .automatic)
+            }
         }
-
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -152,12 +157,10 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         debugPrint("Will change content")
         tableView.beginUpdates()
-
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         debugPrint("Did change content")
-//        tableView.reloadData()
         tableView.endUpdates()
     }
 

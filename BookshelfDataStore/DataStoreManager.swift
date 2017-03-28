@@ -8,7 +8,7 @@
 
 import CoreData
 
-/// Data Store Manager for Core Data
+/// Data Store Manager using Core Data
 open class DataStoreManager: NSObject {
 
     public static let sharedInstance = DataStoreManager()
@@ -21,7 +21,7 @@ open class DataStoreManager: NSObject {
         return persistentContainer.viewContext
     }
 
-    // MARK: - Core Data stack
+    // MARK: - Core Data stack -
 
     public lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -30,7 +30,16 @@ open class DataStoreManager: NSObject {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Bookshelf")
+
+        let modelName = "Bookshelf"
+        let bundle = Bundle(for: type(of: self))
+        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd"),
+            let mom = NSManagedObjectModel(contentsOf: modelURL)
+            else {
+            fatalError("Unable to located Core Data model")
+        }
+
+        let container = NSPersistentContainer(name: modelName, managedObjectModel: mom)
         let description = NSPersistentStoreDescription()
         description.type = self.inMemoryDataEnabled ? NSInMemoryStoreType : NSSQLiteStoreType
         container.persistentStoreDescriptions = [description]
@@ -53,7 +62,7 @@ open class DataStoreManager: NSObject {
         return container
     }()
 
-    // MARK: - Core Data Saving support
+    // MARK: - Core Data Saving -
 
     @discardableResult
     public func saveContext () -> Bool {

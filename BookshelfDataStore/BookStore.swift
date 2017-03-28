@@ -8,6 +8,7 @@
 
 import CoreData
 
+/// Book Store using Core Data
 open class BookStore: NSObject {
 
     public var fetchRequest: NSFetchRequest<Book> {

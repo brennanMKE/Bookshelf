@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Books-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bookshelf" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,6 +49,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qUh-QF-xLG" kind="presentation" identifier="editBook" modalTransitionStyle="flipHorizontal" id="Gf5-xY-BYy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -65,10 +68,10 @@
                             <constraint firstItem="TQ2-0g-AYa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="klo-lv-qGW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EPr-Ff-HXJ">
+                    <navigationItem key="navigationItem" title="Books" id="EPr-Ff-HXJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qq5-hX-d7v">
                             <connections>
-                                <segue destination="qUh-QF-xLG" kind="presentation" id="oJb-Fd-vco"/>
+                                <segue destination="qUh-QF-xLG" kind="presentation" identifier="addBook" modalTransitionStyle="flipHorizontal" id="oJb-Fd-vco"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,13 +121,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhu-b2-y3v">
+                                <rect key="frame" x="325" y="37" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="qUh-QF-xLG" eventType="touchUpInside" id="rat-iL-JNL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9n-lY-Yex">
+                                <rect key="frame" x="16" y="37" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="qUh-QF-xLG" eventType="touchUpInside" id="hYT-fE-qk3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yhu-b2-y3v" firstAttribute="centerY" secondItem="ogT-DT-5PB" secondAttribute="centerY" id="7uB-91-D7K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Icl-AZ-UdR" secondAttribute="trailing" id="9Ld-ae-raT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yhu-b2-y3v" secondAttribute="trailing" id="Kfq-qO-aE9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Icl-AZ-UdR" secondAttribute="leading" id="P1l-yE-KnC"/>
                             <constraint firstAttribute="leadingMargin" secondItem="6Hv-30-Auy" secondAttribute="leading" id="QTI-oV-FcA"/>
                             <constraint firstItem="Icl-AZ-UdR" firstAttribute="top" secondItem="6Hv-30-Auy" secondAttribute="bottom" constant="20" id="Tx9-Ty-jjZ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="W9n-lY-Yex" secondAttribute="leading" id="bUF-DW-pAu"/>
+                            <constraint firstItem="W9n-lY-Yex" firstAttribute="centerY" secondItem="ogT-DT-5PB" secondAttribute="centerY" id="gRK-Rg-U2H"/>
                             <constraint firstItem="6Hv-30-Auy" firstAttribute="top" secondItem="ogT-DT-5PB" secondAttribute="bottom" constant="20" id="rBW-0u-O1i"/>
                             <constraint firstItem="ogT-DT-5PB" firstAttribute="top" secondItem="e2P-dq-f9J" secondAttribute="bottom" constant="20" id="uR0-mp-eLl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Hv-30-Auy" secondAttribute="trailing" id="vDd-gC-UKs"/>
@@ -134,6 +155,8 @@
                     <connections>
                         <outlet property="authorTextField" destination="Icl-AZ-UdR" id="MKm-u6-6WG"/>
                         <outlet property="bookStore" destination="R88-34-fJb" id="QJ8-A9-9C2"/>
+                        <outlet property="saveButton" destination="yhu-b2-y3v" id="yme-QF-isV"/>
+                        <outlet property="titleLabel" destination="ogT-DT-5PB" id="Rpa-XB-zdF"/>
                         <outlet property="titleTextField" destination="6Hv-30-Auy" id="TGW-JK-LZq"/>
                         <segue destination="ntP-an-PlE" kind="unwind" identifier="returnHome" unwindAction="returnHomeWithSegue:" id="e2J-vn-EE8"/>
                     </connections>
@@ -163,4 +186,8 @@
             <point key="canvasLocation" x="133.59999999999999" y="791.15442278860576"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Gf5-xY-BYy"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.067071515972176476" green="0.6151171875" blue="0.11576794027067429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

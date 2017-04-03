@@ -28,6 +28,24 @@ class ViewController: UIViewController {
         prepareBooks()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.selectRow(at: nil, animated: true, scrollPosition: .none)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailViewController {
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell) {
+                let book = bookStore.fetchedResultsController.object(at: indexPath)
+                vc.book = book
+            }
+            else {
+                vc.book = nil
+            }
+        }
+    }
+
     @IBAction func returnHome(segue: UIStoryboardSegue) {
         debugPrint("Returned Home!")
     }
@@ -57,8 +75,9 @@ class ViewController: UIViewController {
                     let author = $0["author"] else {
                     return
                 }
-                bookStore.createBook(bookId: bookId, title: title, author: author)
+                bookStore.createBook(bookId: bookId, title: title, author: author, saveContext: false)
             })
+            DataStoreManager.sharedInstance.saveContext()
         }
 
     }

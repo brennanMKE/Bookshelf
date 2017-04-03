@@ -26,15 +26,6 @@ open class BookStore: NSObject {
                                           cacheName: nil)
     }()
 
-    open func createBook(bookId: String, title: String, author: String) {
-        let context = DataStoreManager.sharedInstance.context
-        let book = Book(context: context)
-        book.bookId = bookId
-        book.title = title
-        book.author = author
-        DataStoreManager.sharedInstance.saveContext()
-    }
-
     open func fetchBooks() -> [Book] {
         let context = DataStoreManager.sharedInstance.context
         let results = try? context.fetch(fetchRequest)
@@ -44,10 +35,33 @@ open class BookStore: NSObject {
         return books
     }
 
-    open func deleteBook(_ book: Book) {
+    @discardableResult
+    open func createBook(bookId: String, title: String, author: String, saveContext: Bool = true) -> Book {
+        let context = DataStoreManager.sharedInstance.context
+        let book = Book(context: context)
+        book.bookId = bookId
+        book.title = title
+        book.author = author
+        if saveContext {
+            DataStoreManager.sharedInstance.saveContext()
+        }
+        return book
+    }
+
+    open func updateBook(_ book: Book, title: String, author: String, saveContext: Bool = true) {
+        book.title = title
+        book.author = author
+        if saveContext {
+            DataStoreManager.sharedInstance.saveContext()
+        }
+    }
+
+    open func deleteBook(_ book: Book, saveContext: Bool = true) {
         let context = DataStoreManager.sharedInstance.context
         context.delete(book)
-        DataStoreManager.sharedInstance.saveContext()
+        if saveContext {
+            DataStoreManager.sharedInstance.saveContext()
+        }
     }
 
 }

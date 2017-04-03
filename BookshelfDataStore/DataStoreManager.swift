@@ -33,13 +33,13 @@ open class DataStoreManager: NSObject {
 
         let modelName = "Bookshelf"
         let bundle = Bundle(for: type(of: self))
-        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd"),
-            let mom = NSManagedObjectModel(contentsOf: modelURL)
+        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd")
             else {
             fatalError("Unable to located Core Data model")
         }
 
-        let container = NSPersistentContainer(name: modelName, managedObjectModel: mom)
+        let container = NSPersistentContainer(name: modelName, bundle: bundle)
+
         let description = NSPersistentStoreDescription()
         description.type = self.inMemoryDataEnabled ? NSInMemoryStoreType : NSSQLiteStoreType
         container.persistentStoreDescriptions = [description]
@@ -79,6 +79,20 @@ open class DataStoreManager: NSObject {
         }
 
         return true
+    }
+
+}
+
+extension NSPersistentContainer {
+
+    public convenience init(name: String, bundle: Bundle) {
+        guard let modelURL = bundle.url(forResource: name, withExtension: "momd"),
+            let mom = NSManagedObjectModel(contentsOf: modelURL)
+            else {
+                fatalError("Unable to located Core Data model")
+        }
+
+        self.init(name: name, managedObjectModel: mom)
     }
 
 }

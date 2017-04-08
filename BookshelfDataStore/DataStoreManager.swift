@@ -33,11 +33,6 @@ open class DataStoreManager: NSObject {
 
         let modelName = "Bookshelf"
         let bundle = Bundle(for: type(of: self))
-        guard let modelURL = bundle.url(forResource: modelName, withExtension: "momd")
-            else {
-            fatalError("Unable to located Core Data model")
-        }
-
         let container = NSPersistentContainer(name: modelName, bundle: bundle)
 
         let description = NSPersistentStoreDescription()

@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     // MARK: - Properties -
 
     @IBOutlet var bookStore: BookStore!
-
+    
     @IBOutlet weak var titleLabel: UILabel!
 
     @IBOutlet weak var titleTextField: UITextField!

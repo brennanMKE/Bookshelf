@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 import BookshelfDataStore
 
 class ViewController: UIViewController {
@@ -35,8 +36,7 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailViewController {
-            if let cell = sender as? UITableViewCell,
-                let indexPath = tableView.indexPath(for: cell) {
+            if let indexPath = sender as? IndexPath {
                 let book = bookStore.fetchedResultsController.object(at: indexPath)
                 vc.book = book
             }
@@ -86,6 +86,74 @@ class ViewController: UIViewController {
         return bookStore.fetchedResultsController.fetchedObjects?.count ?? 0
     }
 
+    fileprivate func selectRow(at indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Search", message: "Would you like to search for this book?", preferredStyle: .actionSheet)
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [unowned self] (action) in
+            self.editBook(at: indexPath)
+        }
+        let searchAction = UIAlertAction(title: "Search", style: .default) { [unowned self] (action) in
+            self.searchBook(at: indexPath)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            debugPrint("Cancel")
+        }
+        alertController.addAction(editAction)
+        alertController.addAction(searchAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    fileprivate func editBook(at indexPath: IndexPath) {
+        debugPrint("Edit")
+        self.performSegue(withIdentifier: "editBook", sender: indexPath)
+    }
+
+    fileprivate func searchBook(at indexPath: IndexPath) {
+        debugPrint("Search")
+        let book = self.bookStore.fetchedResultsController.object(at: indexPath)
+        let author = book.author ?? ""
+        let title = book.title ?? ""
+        let params = [
+            "search-alias" : "stripbooks",
+            "field-author" : author,
+            "field-title" : title
+        ]
+        let baseURLString = "https://www.amazon.com/gp/search/ref=sr_adv_b/"
+        if let searchURL = self.urlWithString(baseURLString, parameters: params) {
+            let safariViewController = SFSafariViewController(url: searchURL)
+            safariViewController.delegate = self
+            self.present(safariViewController, animated: true, completion: nil)
+        }
+    }
+
+    fileprivate func urlWithString(_ string: String?, parameters: [String : Any]?) -> URL? {
+        guard let string = string
+            else {
+                return nil
+        }
+
+        let aURL = URL(string: string)
+        if aURL?.scheme != "http" && aURL?.scheme != "https" {
+            return nil
+        }
+
+        if let parameters = parameters {
+            return appendQueryParameters(parameters, aURL: aURL)
+        }
+
+        return aURL
+    }
+
+    fileprivate func appendQueryParameters(_ parameters: [String : Any], aURL: URL?) -> URL? {
+        guard let aURL = aURL else { return nil }
+        var components = URLComponents(url: aURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = parameters.flatMap {
+            return URLQueryItem(name: $0, value: "\($1)")
+        }
+
+        return components?.url
+    }
+
 }
 
 extension ViewController: UITableViewDataSource {
@@ -121,6 +189,10 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectRow(at: indexPath)
+    }
 
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         debugPrint("Will end editing: \(indexPath.row)")
@@ -181,6 +253,18 @@ extension ViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         debugPrint("Did change content")
         tableView.endUpdates()
+    }
+
+}
+
+extension ViewController: SFSafariViewControllerDelegate {
+
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        debugPrint("Did Finish")
+    }
+
+    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
+        debugPrint("Did Load Successfully")
     }
 
 }

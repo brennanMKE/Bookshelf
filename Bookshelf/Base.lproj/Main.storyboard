@@ -49,9 +49,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="qUh-QF-xLG" kind="presentation" identifier="editBook" modalTransitionStyle="flipHorizontal" id="Gf5-xY-BYy"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -78,6 +75,7 @@
                     <connections>
                         <outlet property="bookStore" destination="s6n-5m-qBf" id="NOO-ZA-bG0"/>
                         <outlet property="tableView" destination="TQ2-0g-AYa" id="EUD-eb-7uF"/>
+                        <segue destination="qUh-QF-xLG" kind="presentation" identifier="editBook" modalTransitionStyle="flipHorizontal" id="dzt-aB-x15"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -187,7 +185,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gf5-xY-BYy"/>
+        <segue reference="dzt-aB-x15"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.067071515972176476" green="0.6151171875" blue="0.11576794027067429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
